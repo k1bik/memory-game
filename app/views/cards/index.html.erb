@@ -1,0 +1,14 @@
+<% cards = Card.order("RANDOM()") %>
+<% cards_size = cards.size %>
+
+<div data-controller="cards" data-cards-cards-size-value=<%= cards_size %> class="main-wrapper">
+  <%= link_to "<-", root_path, class: "text-white mr-4" %>
+  <div data-cards-target="cardsList" class="w-max p-12 grid <%= grid_class(cards_size) %> gap-4 rounded-2xl shadow-2xl bg-green-400">
+    <% cards.each do |card| %>
+      <div data-action="click->cards#show" class="card">
+        <%= image_tag card.image_url, class: "hidden", id: card.id %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

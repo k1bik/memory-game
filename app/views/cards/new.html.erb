@@ -1,0 +1,14 @@
+<div class="main-wrapper">
+  <div class="w-max p-12 rounded-2xl shadow-2xl bg-green-400">
+    <div class="flex-col space-y-4">
+      <% Card::GAME_TYPES.each do |type| %>
+        <%= button_to cards_path, params: { game_type: type } do %>
+          <div class="menu-item">
+            <%= type %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
